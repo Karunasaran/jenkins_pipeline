@@ -4,11 +4,11 @@ pipeline{
         maven 'Maven3.8.4'
     }
     stages{
-        stage(shell_script)
+        stage(Shell_Script)
         {
             steps 
             {
-                sh '''echo "Hello All"
+                sh '''echo "Hello World"
                         echo $JOB_URL
                         echo $JOB_NAME
                         echo $GIT_BRANCH'''
@@ -29,7 +29,7 @@ pipeline{
                 }
             }
         }
-        stage(git_clone)
+        stage(Git_Clone)
         {
             steps 
             {
@@ -51,7 +51,7 @@ pipeline{
                 }
             }
         }
-        stage(packaging)
+        stage(Packaging)
         {
             steps 
             {
@@ -74,7 +74,7 @@ pipeline{
                 }
             }
         }
-        stage(testing)
+        stage(Testing)
         {
             steps 
             {
