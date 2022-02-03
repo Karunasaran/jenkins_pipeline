@@ -33,7 +33,7 @@ pipeline{
         {
             steps 
             {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Karunasaran/day_01.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Karunasaran/simple-java-maven-app.git']]])
             }
             post
             {
