@@ -98,5 +98,19 @@ pipeline{
             }
         }
         
+        stage ("sonar scanning") {
+            steps {
+                script { 
+                    def scannerHome = tool name: 'mySonarScanner';
+                    withSonarQubeEnv("mySonarqubeServer") {
+                        sh "${tool("mysonarqube")}/bin/sonar-scanner \
+                        -Dsonar.projectKey=simple-java-maven-app \
+                        -Dsonar.sources=. \
+                        -Dsonar.java.binaries=target \
+                        -Dsonar.host.url=http://18.117.197.52:9000 \
+                        -Dsonar.login=78ca5405e0332666c1b9ddac116b23fc156af867"
+                    }
+                }
+            }
     }
 }
