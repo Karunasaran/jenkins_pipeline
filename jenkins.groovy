@@ -101,11 +101,11 @@ pipeline{
         stage ("sonar scanning") {
             steps {
                 script { 
-                    def scannerHome = tool name: 'mySonarScanner';
-                    withSonarQubeEnv("mySonarqubeServer") {
+                    def scannerHome = tool name: 'mysonarqube';
+                    withSonarQubeEnv("mysonarqube") {
                         sh "${tool("mysonarqube")}/bin/sonar-scanner \
                         -Dsonar.projectKey=simple-java-maven-app \
-                        -Dsonar.sources=.
+                        -Dsonar.sources=. \
                         -Dsonar.java.binaries=target \
                         -Dsonar.host.url=http://3.145.137.81:9000 \
                         -Dsonar.login=a58f813a1d8749942e21107c586d971322a89cb1"
