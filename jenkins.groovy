@@ -113,5 +113,11 @@ pipeline{
                 }
             }
     }
+         stage ("Upload to Nexus") {
+            steps {
+                sh "mvn -gs ${WORKSPACE}/settings.xml deploy"
+               }
+            }
+    }
 }
-}
+
